@@ -28,6 +28,7 @@ ks_struct = {
     'dict': None
 }
 
+
 def print_ksdata(keysafe):
     print("[*] KeySafe information...")
     print("\tID = %s" % keysafe['id'])
@@ -35,7 +36,6 @@ def print_ksdata(keysafe):
     print("\tAlgorithm = %s" % keysafe['password_cipher'])
     print("\tConfig Hash = %s" % keysafe['config_hash'])
     print("\tSalt = %s" % hexlify(keysafe['salt']).decode())
-
 
 
 def crack_keysafe(keysafe, dict):
