@@ -124,7 +124,6 @@ def pyvmx(vmx, dict):
     # Map KeyStore to Dict
     parsed_ks = parse_keysafe(vmx)
     # Print info
-    print(parsed_ks)
     print_ksdata(parsed_ks)
     # Crack keysafe
     crack_keysafe(parsed_ks, dict)
