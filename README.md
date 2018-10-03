@@ -1,4 +1,4 @@
-# pyvboxdie-cracker
+# pyvmx-cracker
 
 Based on the [VMwareVMX](https://github.com/RF3/VMwareVMX) module, this tool aims to crack VMX encryption passwords. This tool crack the password by successfully decrypting the *dict* structure. If you want to fully decrypt the VMX structure, check the [VMwareVMX](https://github.com/RF3/VMwareVMX) module.
 
