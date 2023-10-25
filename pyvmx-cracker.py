@@ -28,8 +28,8 @@ ks_struct = {
     'dict': None
 }
 
-
 def print_ksdata(keysafe):
+    # print (keysafe)
     print("[*] KeySafe information...")
     print("\tID = %s" % keysafe['id'])
     print("\tHash = %s" % keysafe['password_hash'])
@@ -79,7 +79,6 @@ def parse_keysafe(file):
             keysafe = line
 
     keysafe = unquote(keysafe)
-
     match = re.match(ks_re, keysafe)
     if not match:
         msg = 'Unsupported format of the encryption.keySafe line:\n' + keysafe
@@ -101,13 +100,14 @@ def parse_keysafe(file):
 def check_files(vmx, dict):
     try:
         with open(vmx, 'r') as data:
-            lines = data.readlines()
+            lines = data.read()
+            if 'encryption.keySafe' in lines:
+                print("[+] encryption.keySafe have been found.")
+            else : 
+                sys.exit('[-] Invalid VMX file or the VMX is not encrypted')
     except (OSError, IOError):
         sys.exit('[-] Cannot read from file ' + vmx)
-
-    if 'encryption.keySafe' not in lines[2]:
-        sys.exit('[-] Invalid VMX file or the VMX is not encrypted')
-
+    
     try:
         passf = open(dict, 'rb')
     except IOError:
