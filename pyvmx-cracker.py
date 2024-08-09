@@ -105,7 +105,7 @@ def check_files(vmx, dict):
     except (OSError, IOError):
         sys.exit('[-] Cannot read from file ' + vmx)
 
-    if 'encryption.keySafe' not in lines[2]:
+    if all('encryption.keySafe' not in line for line in lines):
         sys.exit('[-] Invalid VMX file or the VMX is not encrypted')
 
     try:
